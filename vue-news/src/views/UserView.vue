@@ -1,13 +1,30 @@
 <template>
   <div>
-    <p>name : {{ userInfo.id }}</p>
-    <p>karma : {{ userInfo.karma }}</p>
-    <p>created : {{ userInfo.created }}</p>
+    <user-profile :info="userInfo">
+      <template v-slot:username>
+        <div>
+          {{ userInfo.id }}
+        </div>
+      </template>
+      <template v-slot:time>
+        <span>
+          {{ "joined " + userInfo.created + ", " }}
+        </span>
+        <span>
+          {{ userInfo.karma }}
+        </span>
+      </template>
+    </user-profile>
   </div>
 </template>
 
 <script>
+import UserProfile from "../components/UserProfile.vue";
+
 export default {
+  components: {
+    UserProfile,
+  },
   computed: {
     userInfo() {
       return this.$store.state.user;
