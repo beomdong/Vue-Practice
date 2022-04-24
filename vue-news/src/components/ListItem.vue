@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="new-list">
-      <li v-for="item in listItems" class="post">
+      <li v-for="item in listItems" class="post" v-bind:key="item">
         <!-- 포인트 영역 -->
         <div class="points">
           {{ item.points || 0 }}

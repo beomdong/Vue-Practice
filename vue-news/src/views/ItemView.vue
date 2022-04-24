@@ -8,7 +8,7 @@
             {{ fetchedItem.user }}
           </router-link>
         </template>
-        <template v-slot:time>{{ "Posted " + fetchedItem.time_ago }}</template>
+        <template v-slot:time>{{ `Posted ${fetchedItem.time_ago} ` }}</template>
       </user-profile>
     </section>
     <section>

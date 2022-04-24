@@ -8,7 +8,7 @@
       </template>
       <template v-slot:time>
         <span>
-          {{ "joined " + userInfo.created + ", " }}
+          {{ `joined ${userInfo.created} , ` }}
         </span>
         <span>
           {{ userInfo.karma }}
