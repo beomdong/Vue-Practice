@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="new-list">
-      <li v-for="item in listItems" class="post" v-bind:key="item">
+      <li v-for="item in listItems" class="post" v-bind:key="item.title">
         <!-- 포인트 영역 -->
         <div class="points">
           {{ item.points || 0 }}
@@ -42,16 +42,6 @@
 
 <script>
 export default {
-  created() {
-    const name = this.$route.name;
-    if (name === "news") {
-      this.$store.dispatch("FETCH_NEWS");
-    } else if (name === "ask") {
-      this.$store.dispatch("FETCH_ASK");
-    } else if (name === "jobs") {
-      this.$store.dispatch("FETCH_JOBS");
-    }
-  },
   computed: {
     listItems() {
       const name = this.$route.name;
