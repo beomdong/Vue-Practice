@@ -6,29 +6,20 @@ export default function createListView(name) {
         // 재사용할 인스턴스 옵션들
         name,
 
-        created() {
-            bus.$emit('start:spinner')
+        // created() {
+        //     bus.$emit('start:spinner')
 
-            this.$store.dispatch("FETCH_LIST", this.$route.name)
-                .then(() => {
-                    console.log("fetched");
-                    bus.$emit("end:spinner");
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-
-            // setTimeout(() => {
-            //     this.$store
-            //         .dispatch("FETCH_LIST", this.$route.name)
-            //         .then(() => {
-            //             console.log("fetched");
-            //             bus.$emit("end:spinner");
-            //         })
-            //         .catch((error) => {
-            //             console.log(error);
-            //         });
-            // }, 3000);
+        //     this.$store.dispatch("FETCH_LIST", this.$route.name)
+        //         .then(() => {
+        //             console.log("fetched");
+        //             bus.$emit("end:spinner");
+        //         })
+        //         .catch((error) => {
+        //             console.log(error);
+        //         });
+        // },
+        mounted() {
+            bus.$emit('end:spinner')
         },
         render(createElement) {
             return createElement(ListView);
