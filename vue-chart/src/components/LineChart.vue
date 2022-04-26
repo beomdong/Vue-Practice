@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Chart from "chart.js/auto";
+
 
 export default {
   mounted() {
@@ -34,7 +34,7 @@ export default {
       options: {}
     };
 
-    const myChart = new Chart(
+    const myChart = new this.$Chart(
         this.$refs.lineChart,
         config
     );
